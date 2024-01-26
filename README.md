@@ -6,17 +6,21 @@
 ```lsblk -f```
 
 如果 EFI 分区没有挂载，你需要先挂载它：
-sudo mount /dev/nvme0n1p1 /boot/efi
+
+```sudo mount /dev/nvme0n1p1 /boot/efi```
 
 其中，`/dev/nvme0n1p1` 是你的 EFI 分区，你应该根据自己的实际情况调整。
 
 然后，你可以按照以下步骤手动添加 Windows 启动项：
 
 1. 编辑 /etc/grub.d/40_custom 文件，在其中添加 Windows 启动项的信息。你可以使用任何文本编辑器，例如 `nano`：
-sudo nano /etc/grub.d/40_custom
+
+```sudo nano /etc/grub.d/40_custom```
+
 也可以使用VIM编辑文件
 
 3. 在文件的末尾添加以下内容：
+```
 menuentry "Windows Boot Manager" --class windows --class os {
     insmod part_gpt
     insmod fat
@@ -25,6 +29,7 @@ menuentry "Windows Boot Manager" --class windows --class os {
     search --fs-uuid --set=root YOUR_WINDOWS_EFI_PARTITION_UUID
     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
 }
+```
 
 请将 YOUR_WINDOWS_EFI_PARTITION_UUID 替换为你的 Windows EFI 分区的实际 UUID。你可以通过运行 blkid 命令来查找它。
 
