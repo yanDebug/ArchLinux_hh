@@ -33,7 +33,7 @@ menuentry "Windows Boot Manager" --class windows --class os {
 
 请将 `YOUR_WINDOWS_EFI_PARTITION_UUID` 替换为你的 Windows EFI 分区的实际 `UUID`。你可以通过运行 `blkid` 命令来查找它。
 
-3. `wq`保存并关闭文件。
+3. `:wq`保存并关闭文件。
 
 4. 更新 GRUB 配置：
 ```
