@@ -5,6 +5,8 @@
 ```
 lsblk -f
 ```
+EFI 分区一般来说是挂载了的，记住EFI分区的UUID。
+
 如果 EFI 分区没有挂载，你需要先挂载它：
 ```
 sudo mount /dev/nvme0n1p1 /boot/efi
