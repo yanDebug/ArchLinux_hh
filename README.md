@@ -1,8 +1,8 @@
 # ArchLinux和Windows双系统,Windows系统引导项消失
 如果你的 Arch Linux 系统已经安装了 GRUB 作为引导加载器，但它没有自动检测到你的 Windows 系统作为启动项，你可以手动添加一个引导项。
 
-首先，确保你的 EFI 分区已经挂载。通常，EFI 分区会自动挂载到 /boot 或 `/boot/efi`。你可以通过以下命令检查挂载情况：
-lsblk -f
+首先，确保你的 EFI 分区已经挂载。通常，EFI 分区会自动挂载到 `/boot` 或 `/boot/efi`。你可以通过以下命令检查挂载情况：
+``lsblk -f``
 
 如果 EFI 分区没有挂载，你需要先挂载它：
 sudo mount /dev/nvme0n1p1 /boot/efi
