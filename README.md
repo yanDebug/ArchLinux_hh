@@ -2,27 +2,21 @@
 如果你的 Arch Linux 系统已经安装了 GRUB 作为引导加载器，但它没有自动检测到你的 Windows 系统作为启动项，你可以手动添加一个引导项。
 
 首先，确保你的 EFI 分区已经挂载。通常，EFI 分区会自动挂载到 `/boot` 或 `/boot/efi`。你可以通过以下命令检查挂载情况： 
-
 ```
 lsblk -f
 ```
-
 如果 EFI 分区没有挂载，你需要先挂载它：
-
 ```
 sudo mount /dev/nvme0n1p1 /boot/efi
 ```
-
 其中，`/dev/nvme0n1p1` 是你的 EFI 分区，你应该根据自己的实际情况调整。
 
 然后，你可以按照以下步骤手动添加 Windows 启动项：
 
 1. 编辑 /etc/grub.d/40_custom 文件，在其中添加 Windows 启动项的信息。你可以使用任何文本编辑器，例如 `nano`：
-
 ```
 sudo nano /etc/grub.d/40_custom
 ```
-
 也可以使用VIM编辑文件
 
 2. 在文件的末尾添加以下内容：
@@ -45,7 +39,6 @@ menuentry "Windows Boot Manager" --class windows --class os {
 ```
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
-
 5. 重新启动电脑，检查 GRUB 菜单，看看 Windows 启动项是否已经添加。
 
 请务必谨慎操作，因为任何错误都可能导致系统启动问题。如果你对这个过程不确定，建议备份任何重要数据，并确保你有从其他介质启动的能力，以防需要修复 GRUB。
