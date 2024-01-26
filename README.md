@@ -1,4 +1,4 @@
-# ArchLinux和Windows双系统,Windows系统引导项消失
+# ArchLinux和Windows双系统,Windows系统引导项消失解决方法
 如果你的 Arch Linux 系统已经安装了 GRUB 作为引导加载器，但它没有自动检测到你的 Windows 系统作为启动项，你可以手动添加一个引导项。
 
 首先，确保你的 EFI 分区已经挂载。通常，EFI 分区会自动挂载到 `/boot` 或 `/boot/efi`。你可以通过以下命令检查挂载情况： 
@@ -13,12 +13,10 @@ sudo mount /dev/nvme0n1p1 /boot/efi
 
 然后，你可以按照以下步骤手动添加 Windows 启动项：
 
-1. 编辑 /etc/grub.d/40_custom 文件，在其中添加 Windows 启动项的信息。你可以使用任何文本编辑器，例如 `nano`：
+1. 编辑 `/etc/grub.d/40_custom` 文件，在其中添加 Windows 启动项的信息。你可以使用任何文本编辑器，例如 `vim`：
 ```
-sudo nano /etc/grub.d/40_custom
+sudo vim /etc/grub.d/40_custom
 ```
-也可以使用VIM编辑文件
-
 2. 在文件的末尾添加以下内容：
 ```
 menuentry "Windows Boot Manager" --class windows --class os {
@@ -33,7 +31,7 @@ menuentry "Windows Boot Manager" --class windows --class os {
 
 请将 `YOUR_WINDOWS_EFI_PARTITION_UUID` 替换为你的 Windows EFI 分区的实际 `UUID`。你可以通过运行 `blkid` 命令来查找它。
 
-3. 保存并关闭文件。如果你使用 `nano`，可以按 `Ctrl+X`，然后按 `Y 确认保存，最后按 Enter 退出。
+3. `wq`保存并关闭文件。
 
 4. 更新 GRUB 配置：
 ```
