@@ -1,4 +1,5 @@
-# ArchLinux和Windows双系统,Windows系统引导项消失解决方法
+# ArchLinux
+## 双系统,Windows系统引导项消失解决方法
 如果你的 Arch Linux 系统已经安装了 GRUB 作为引导加载器，但它没有自动检测到你的 Windows 系统作为启动项，你可以手动添加一个引导项。
 
 首先，确保你的 EFI 分区已经挂载。通常，EFI 分区会自动挂载到 `/boot` 或 `/boot/efi`。你可以通过以下命令检查挂载情况： 
@@ -42,3 +43,17 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 5. 重新启动电脑，检查 GRUB 菜单，看看 Windows 启动项是否已经添加。
 
 请务必谨慎操作，因为任何错误都可能导致系统启动问题。如果你对这个过程不确定，建议备份任何重要数据，并确保你有从其他介质启动的能力，以防需要修复 GRUB。
+
+## 终端使用代理
+安装`proxychains-ng`
+```
+sudo pacman -S proxychains-ng
+```
+编辑配置文件 
+```
+sudo vim /etc/proxychains.conf
+```
+指令前加proxychains
+```
+proxychains ping http://www.google.com
+```
