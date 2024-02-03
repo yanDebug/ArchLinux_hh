@@ -57,3 +57,9 @@ sudo vim /etc/proxychains.conf
 ```
 proxychains ping http://www.google.com
 ```
+还有一种方法，比如你使用的内核是clash，则执行
+```
+export https_proxy=http://127.0.0.1:7897
+export http_proxy=http://127.0.0.1:7897
+export all_proxy=http://127.0.0.1:7897
+```
