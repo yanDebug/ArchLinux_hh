@@ -106,3 +106,16 @@ export https_proxy=http://127.0.0.1:7897
 export http_proxy=http://127.0.0.1:7897
 export all_proxy=http://127.0.0.1:7897
 ```
+## 系统半英文半中文解决方法
+编辑`~/.config/plasma-localerc`文件
+```
+sudo vim ~/.config/plasma-localerc
+```
+编辑为
+```
+[Formats]
+LANG=zh_CN.UTF-8
+
+[Translations]
+LC_NUMERIC=zh_CN.en_US
+```
