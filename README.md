@@ -98,7 +98,7 @@ sudo vim /etc/proxychains.conf
 ```
 指令前加proxychains
 ```
-proxychains ping http://www.google.com
+proxychains ping www.google.com
 ```
 还有一种方法，比如你使用的内核是clash，则执行
 ```
