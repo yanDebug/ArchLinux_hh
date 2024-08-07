@@ -17,7 +17,7 @@ grub-install /dev/sda  # 替换 /dev/sda 为您的硬盘
 update-grub
 exit
 ```
-2. 确保 os-prober 已安装并启用:`os-prober` 是一个工具，GRUB 会用它来检测其他操作系统。
+2. 确保 `os-prober` 已安装并启用:`os-prober` 是一个工具，GRUB 会用它来检测其他操作系统。
 确保 `os-prober` 是安装的，并且在 `/etc/default/grub` 文件中没有被禁用。
 ```
 sudo apt-get install os-prober # Debian/Ubuntu 和它们的衍生版
