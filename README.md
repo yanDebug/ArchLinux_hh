@@ -23,7 +23,7 @@ exit
 sudo apt-get install os-prober # Debian/Ubuntu 和它们的衍生版
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
-3. 检查Windows引导条目**:如果 `os-prober` 没有自动检测到 Windows，您可能需要手动添加一个自定义条目到 `/etc/grub.d/40_custom` 文件。
+3. 检查Windows引导条目:如果 `os-prober` 没有自动检测到 Windows，您可能需要手动添加一个自定义条目到 `/etc/grub.d/40_custom` 文件。
 这个文件中的条目格式应该如下所示：
 ```
 menuentry "Windows 10" --class windows --class os {
